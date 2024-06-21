@@ -43,7 +43,7 @@ function App() {
 
       <div className="container">
         <div className="column">
-          <h3>all tasks</h3>
+          <h3>current</h3>
           <TaskList todoItems={todoItems} removeTask={removeTask} />
         </div>
 
