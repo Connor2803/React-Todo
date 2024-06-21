@@ -9,13 +9,14 @@ const TaskList = (props) => {
         {todoItems.map((task, index) => {
           return (
             <div key={task.content} style={{ display: task.finished ? "none" : "flex", justifyContent: "center", alignItems:"center" }}>
-                <p style={{paddingRight:"10px"}}>{task.content}</p>
                 <input
                     type="radio"
+                    className="radioguys"
                     checked={task.finished}
                     onClick={() => removeTask(index)}
                     style={{ height: "20px", width: "20px" }}
                   />
+                <p style={{paddingRight:"10px"}}>{task.content}</p>
             </div>
           );
         })}
