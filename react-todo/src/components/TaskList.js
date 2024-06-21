@@ -3,25 +3,20 @@
 import React, { useState } from "react";
 
 const TaskList = (props) => {
-    const initialTodoItems = props.todoItems;
-    const [todoItems, setTodoItems] = useState(initialTodoItems);
-    
-    function removeTask(index){
-        const updatedItems = [...todoItems];
-        updatedItems[index].finished = true;
-        setTodoItems(updatedItems);
-    }
-    
+    const todoItems = props.todoItems;
+    const removeTask = props.removeTask;
+    const finishedItems = props.finishedItems;
+
     return (
         <div>
-            {todoItems.map((task, index) => {
-                return (
-                    <div key={task.content} style={{ display: task.finished ? "none" : "flex", justifyContent: "center" }}>
-                        <p style={{paddingRight:"10px"}}>{task.content}</p>
-                        <button onClick={() => removeTask(index)}>Remove</button>
-                    </div>
-                );
-            })}
+        {todoItems.map((task, index) => {
+          return (
+            <div key={task.content} style={{ display: "flex", justifyContent: "center", alignItems:"center" }}>
+                <p style={{paddingRight:"10px"}}>{task.content}</p>
+                <button style={{height:"25px"}} onClick={() => removeTask(index)}>Remove</button>
+            </div>
+          );
+        })}
         </div>
     );
 };
